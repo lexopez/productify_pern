@@ -10,10 +10,15 @@
     "dev": "nodemon",
     "build": "tsc",
     "start": "node dist/server.js",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed:bootstrap": "tsx src/db/seeds/bootstrap/bootstrap.seed.ts",
+    "db:seed:dev": "tsx src/db/seeds/dev/dev.seed.ts"
   },
   "dependencies": {
     "@clerk/express": "^2.1.20",
+    "@faker-js/faker": "^10.4.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",

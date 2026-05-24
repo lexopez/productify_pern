@@ -16,3 +16,14 @@ pool.on("error", (err) => {
 });
 
 export const db = drizzle({ client: pool, schema });
+
+// import "dotenv/config";
+
+// import postgres from "postgres";
+// import { drizzle } from "drizzle-orm/postgres-js";
+
+// const sql = postgres(process.env.DATABASE_URL!, {
+//   max: 20,
+// });
+
+// export const db = drizzle(sql);
