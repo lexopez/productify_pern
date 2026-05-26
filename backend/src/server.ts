@@ -67,7 +67,7 @@ async function startServer() {
   // }
 
   app.listen(PORT, () => {
-    console.log(`🚀 Server spinning up on port ${process.env.PORT}`);
+    console.log(`🚀 Server spinning up on port ${PORT}`);
   });
 }
 
