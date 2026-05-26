@@ -8,7 +8,7 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run db:generate && npm run db:migrate && tsc",
+    "build": "npm install && npm run db:generate && npm run db:migrate && tsc",
     "start": "node dist/server.js",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
