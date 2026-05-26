@@ -20,6 +20,7 @@ function useUserSync() {
       syncUserMutation({
         email: user.primaryEmailAddress?.emailAddress,
         name: user.fullName || user.firstName,
+        username: user.username || user.firstName,
         imageUrl: user.imageUrl,
       });
     }
