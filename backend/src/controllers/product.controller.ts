@@ -61,7 +61,7 @@ export const createProduct = async (req: Request, res: Response) => {
     const product = await queries.createProduct({
       title,
       description,
-      price: "0",
+      price: 0,
       imageUrl,
       userId,
     });
