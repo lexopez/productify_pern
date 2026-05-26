@@ -8,4 +8,7 @@ export default defineConfig({
   dbCredentials: {
     url: process.env.DATABASE_URL!,
   },
+  // Enforces strict mode to prevent accidental data-loss during push operations
+  strict: true,
+  verbose: true,
 });

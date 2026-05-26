@@ -8,6 +8,8 @@ export function createFakeUser() {
 
     name: faker.person.fullName(),
 
+    username: faker.internet.username(),
+
     imageUrl: faker.image.avatar(),
   };
 }

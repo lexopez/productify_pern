@@ -9,8 +9,8 @@ export async function syncUser(req: Request, res: Response) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    const { email, name, imageUrl } = req.body;
-    if (!email || !name || !imageUrl) {
+    const { email, name, imageUrl, username } = req.body;
+    if (!email || !name || !imageUrl || !username) {
       return res
         .status(400)
         .json({ error: "email, name and imageUrl are required" });
@@ -21,6 +21,7 @@ export async function syncUser(req: Request, res: Response) {
       email,
       name,
       imageUrl,
+      username,
     });
     return res.status(200).json(user);
   } catch (error) {

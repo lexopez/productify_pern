@@ -6,6 +6,7 @@ export const users = pgTable("users", {
   email: text("email").notNull(),
   name: text("name").notNull(),
   username: text("username").notNull(),
+  bio: text("bio"),
   imageUrl: text("image_url").notNull(),
   createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
   updatedAt: timestamp("updated_at", { mode: "date" }).defaultNow().notNull(),
@@ -16,7 +17,7 @@ export const products = pgTable("products", {
   title: text("title").notNull(),
   description: text("description").notNull(),
   imageUrl: text("image_url").notNull(),
-  price: text("price"),
+  price: text("price").notNull(),
   userId: text("user_id")
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),

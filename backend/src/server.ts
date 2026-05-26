@@ -3,14 +3,14 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import "dotenv/config";
-import path from "path";
+// import path from "path";
 import { clerkMiddleware } from "@clerk/express";
 
 import userRoutes from "./routes/userRoutes.ts";
 import productRoutes from "./routes/productRoutes.ts";
 import commentRoutes from "./routes/commentRoutes.ts";
-import { migrate } from "drizzle-orm/node-postgres/migrator";
-import { db } from "./db/index.ts";
+// import { migrate } from "drizzle-orm/node-postgres/migrator";
+// import { db } from "./db/index.ts";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -59,12 +59,14 @@ app.use("/api/v1/comments", commentRoutes);
 // app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 
 async function startServer() {
-  // Automatically run pending migrations on startup
-  console.log("🔄 Running database migrations...");
-  await migrate(db, { migrationsFolder: "./drizzle" });
-  console.log("✅ Migrations complete!");
+  // if (process.env.NODE_ENV !== "production") {
+  //   // Automatically run pending migrations on startup
+  //   console.log("🔄 Running database migrations...");
+  //   await migrate(db, { migrationsFolder: "./drizzle" });
+  //   console.log("✅ Migrations complete!");
+  // }
 
-  app.listen(process.env.PORT, () => {
+  app.listen(PORT, () => {
     console.log(`🚀 Server spinning up on port ${process.env.PORT}`);
   });
 }

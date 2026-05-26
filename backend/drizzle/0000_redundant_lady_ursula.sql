@@ -12,6 +12,7 @@ CREATE TABLE "products" (
 	"title" text NOT NULL,
 	"description" text NOT NULL,
 	"image_url" text NOT NULL,
+	"price" text NOT NULL,
 	"user_id" text NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
@@ -21,6 +22,8 @@ CREATE TABLE "users" (
 	"id" text PRIMARY KEY NOT NULL,
 	"email" text NOT NULL,
 	"name" text NOT NULL,
+	"username" text NOT NULL,
+	"bio" text,
 	"image_url" text NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL

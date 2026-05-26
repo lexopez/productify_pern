@@ -1,5 +1,5 @@
 {
-  "id": "9053eb48-e98a-4112-b1c0-f1295aed2ba3",
+  "id": "ec389000-e606-4bb1-a983-0a5eadbfcb3f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -112,6 +112,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "price": {
+          "name": "price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
         "user_id": {
           "name": "user_id",
           "type": "text",
@@ -176,6 +182,18 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bio": {
+          "name": "bio",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "image_url": {
           "name": "image_url",
