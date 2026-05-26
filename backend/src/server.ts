@@ -6,11 +6,11 @@ import "dotenv/config";
 // import path from "path";
 import { clerkMiddleware } from "@clerk/express";
 
-import userRoutes from "./routes/userRoutes.ts";
-import productRoutes from "./routes/productRoutes.ts";
-import commentRoutes from "./routes/commentRoutes.ts";
+import userRoutes from "./routes/userRoutes.js";
+import productRoutes from "./routes/productRoutes.js";
+import commentRoutes from "./routes/commentRoutes.js";
 // import { migrate } from "drizzle-orm/node-postgres/migrator";
-// import { db } from "./db/index.ts";
+import { db } from "./db/index.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,7 +28,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // parses form data (like HTML forms).
 
-app.get("/api/health", (req, res) => {
+app.get("/api/health", (_req, res) => {
   res.json({
     message:
       "Welcome to Productify API - Powered by PostgreSQL, Drizzle ORM & Clerk Auth",
@@ -66,9 +66,17 @@ async function startServer() {
   //   console.log("✅ Migrations complete!");
   // }
 
-  app.listen(PORT, () => {
-    console.log(`🚀 Server spinning up on port ${PORT}`);
-  });
+  try {
+    await db.execute("SELECT 1");
+    console.log("Database connected successfully!");
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server spinning up on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    process.exit(1); // Exit if connection is critical
+  }
 }
 
 startServer().catch((err) => {

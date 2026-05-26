@@ -1,5 +1,5 @@
-import { createFakeUser } from "../../factories/user.factory.ts";
-import { users } from "../../schema.ts";
+import { createFakeUser } from "../../factories/user.factory.js";
+import { users } from "../../schema.js";
 
 export type TX = Parameters<
   Parameters<typeof import("../../index.ts").db.transaction>[0]

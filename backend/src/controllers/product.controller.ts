@@ -1,10 +1,10 @@
 import type { Request, Response } from "express";
 
-import * as queries from "../db/queries.ts";
+import * as queries from "../db/queries.js";
 import { getAuth } from "@clerk/express";
 
 // Get all products (public)
-export const getAllProducts = async (req: Request, res: Response) => {
+export const getAllProducts = async (_req: Request, res: Response) => {
   try {
     const products = await queries.getAllProducts();
     res.status(200).json(products);

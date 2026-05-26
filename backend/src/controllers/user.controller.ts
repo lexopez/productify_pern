@@ -1,6 +1,6 @@
 import { getAuth } from "@clerk/express";
 import type { Request, Response } from "express";
-import * as queries from "../db/queries.ts";
+import * as queries from "../db/queries.js";
 
 export async function syncUser(req: Request, res: Response) {
   try {

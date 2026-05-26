@@ -1,5 +1,5 @@
-import { comments } from "../../schema.ts";
-import { createFakeComment } from "../../factories/comment.factory.ts";
+import { comments } from "../../schema.js";
+import { createFakeComment } from "../../factories/comment.factory.js";
 import type { TX } from "./users.seed.ts";
 
 type SeedUser = {

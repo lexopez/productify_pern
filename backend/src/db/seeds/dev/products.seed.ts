@@ -1,5 +1,5 @@
-import { products } from "../../schema.ts";
-import { createFakeProduct } from "../../factories/product.factory.ts";
+import { products } from "../../schema.js";
+import { createFakeProduct } from "../../factories/product.factory.js";
 import type { TX } from "./users.seed.ts";
 
 type SeedUser = {

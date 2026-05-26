@@ -1,6 +1,6 @@
-import { db } from "../../index.ts";
+import { db } from "../../index.js";
 
-import { comments, products, users } from "../../schema.ts";
+import { comments, products, users } from "../../schema.js";
 
 import { ne } from "drizzle-orm";
 

@@ -1,8 +1,8 @@
 import "dotenv/config";
 
-import { db } from "../../index.ts";
+import { db } from "../../index.js";
 
-import { users } from "../../schema.ts";
+import { users } from "../../schema.js";
 
 import { eq } from "drizzle-orm";
 
@@ -21,6 +21,8 @@ async function seedBootstrap() {
         email: "admin@example.com",
 
         name: "Administrator",
+
+        username: "admin",
 
         imageUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=admin",
       });

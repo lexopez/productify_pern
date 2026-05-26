@@ -8,7 +8,8 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon",
-    "build": "npm install && npm run db:generate && npm run db:migrate && tsc",
+    "build:dev": "tsc",
+    "build": "npm install && npm run build:dev && npm run db:generate && npm run db:migrate",
     "start": "node dist/server.js",
     "db:push": "drizzle-kit push",
     "db:generate": "drizzle-kit generate",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "@types/morgan": "^1.9.10",
     "@types/node": "^25.9.1",
     "@types/pg": "^8.20.0",
     "drizzle-kit": "^0.31.10",

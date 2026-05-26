@@ -1,10 +1,10 @@
 import "dotenv/config";
 
-import { db } from "../../index.ts";
-import { clearDatabase } from "../shared/clear-db.ts";
-import { seedUsers } from "./users.seed.ts";
-import { seedProducts } from "./products.seed.ts";
-import { seedComments } from "./comments.seed.ts";
+import { db } from "../../index.js";
+import { clearDatabase } from "../shared/clear-db.js";
+import { seedUsers } from "./users.seed.js";
+import { seedProducts } from "./products.seed.js";
+import { seedComments } from "./comments.seed.js";
 
 async function main() {
   if (process.env.NODE_ENV === "production") {
