@@ -4,7 +4,10 @@ import { Pool } from "pg";
 import * as schema from "./schema.js";
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString:
+    process.env.NODE_ENV === "production"
+      ? process.env.PROD_DATABASE_URL
+      : process.env.DEV_DATABASE_URL,
 });
 
 export const db = drizzle({ client: pool, schema });
