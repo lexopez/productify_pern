@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
@@ -28,7 +28,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // parses form data (like HTML forms).
 
-app.get("/api/health", (_req, res) => {
+app.get("/api/health", (_req: Request, res: Response) => {
   res.json({
     message:
       "Welcome to Productify API - Powered by PostgreSQL, Drizzle ORM & Clerk Auth",
