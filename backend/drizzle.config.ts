@@ -6,10 +6,7 @@ export default defineConfig({
   schema: "./src/db/schema.ts",
   dialect: "postgresql",
   dbCredentials: {
-    url:
-      process.env.NODE_ENV === "production"
-        ? process.env.PROD_DATABASE_URL!
-        : process.env.DEV_DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
   // Enforces strict mode to prevent accidental data-loss during push operations
   strict: true,
