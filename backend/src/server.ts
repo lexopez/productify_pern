@@ -59,13 +59,6 @@ app.use("/api/v1/comments", commentRoutes);
 // app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 
 async function startServer() {
-  // if (process.env.NODE_ENV !== "production") {
-  //   // Automatically run pending migrations on startup
-  //   console.log("🔄 Running database migrations...");
-  //   await migrate(db, { migrationsFolder: "./drizzle" });
-  //   console.log("✅ Migrations complete!");
-  // }
-
   try {
     await db.execute("SELECT 1");
     console.log("Database connected successfully!");
