@@ -6,7 +6,7 @@ import {
   UserIcon,
 } from "lucide-react";
 import LoadingSpinner from "../components/LoadingSpinner";
-import CommentsSection from "../components/CommentsSection";
+import CommentsSection from "../components/CommentSection";
 import { useAuth } from "@clerk/clerk-react";
 import { useProduct, useDeleteProduct } from "../hooks/useProducts";
 import { useParams, Link, useNavigate } from "react-router";
