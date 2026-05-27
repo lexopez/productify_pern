@@ -6,7 +6,7 @@ export function createFakeProduct(userId: string) {
 
     description: faker.commerce.productDescription(),
 
-    price: Number(faker.commerce.price()),
+    price: faker.commerce.price(),
 
     imageUrl: faker.image.urlPicsumPhotos(),
 

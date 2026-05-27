@@ -7,14 +7,6 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
-// pool.on("connect", () => {
-//   console.log("Database connected successfully");
-// });
-
-// pool.on("error", (err) => {
-//   console.log("Database connection error", err);
-// });
-
 export const db = drizzle({ client: pool, schema });
 
 // import "dotenv/config";
