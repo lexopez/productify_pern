@@ -18,16 +18,16 @@ function useUserSync() {
     mutationFn: syncUser,
   });
 
-  // useEffect(() => {
-  //   if (isSignedIn && user && !isPending && !isSuccess) {
-  //     syncUserMutation({
-  //       email: user.primaryEmailAddress?.emailAddress,
-  //       name: user.fullName || user.firstName,
-  //       username: user.username || user.firstName,
-  //       imageUrl: user.imageUrl,
-  //     });
-  //   }
-  // }, [isSignedIn, user, isPending, isSuccess, syncUserMutation]);
+  useEffect(() => {
+    if (isSignedIn && user) {
+      syncUserMutation({
+        email: user.primaryEmailAddress?.emailAddress,
+        name: user.fullName || user.firstName,
+        username: user.username || user.firstName,
+        imageUrl: user.imageUrl,
+      });
+    }
+  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation]);
 
   return { isSynced: isSuccess };
 }
