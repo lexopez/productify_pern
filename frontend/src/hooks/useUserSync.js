@@ -4,10 +4,9 @@ import { useMutation } from "@tanstack/react-query";
 import { syncUser } from "../lib/api";
 
 function useUserSync() {
-  const { isSignedIn, getToken } = useAuth();
+  const { isSignedIn } = useAuth();
   const { user } = useUser();
   console.log("Is Signed In:", isSignedIn);
-  getToken().then((token) => console.log("Token:", token));
   console.log("User:", user);
 
   const {
