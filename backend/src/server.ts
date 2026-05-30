@@ -23,9 +23,9 @@ app.use(
     credentials: true, // allow cookies to be sent in CORS requests
   }),
 );
+app.use(clerkMiddleware());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // parses form data (like HTML forms).
-app.use(clerkMiddleware());
 
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({
