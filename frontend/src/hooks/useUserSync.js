@@ -7,7 +7,8 @@ function useUserSync() {
   const { isSignedIn, getToken } = useAuth();
   const { user } = useUser();
   console.log("Is Signed In:", isSignedIn);
-  getToken().then((t) => console.log("Token:", t));
+  const token = getToken().then((t) => t);
+  console.log("Token:", token);
   console.log("User:", user);
 
   const {
@@ -20,14 +21,17 @@ function useUserSync() {
 
   useEffect(() => {
     if (isSignedIn && user && !isPending && !isSuccess) {
-      syncUserMutation({
-        email: user.primaryEmailAddress?.emailAddress,
-        name: user.fullName || user.firstName,
-        username: user.username || user.firstName,
-        imageUrl: user.imageUrl,
-      });
+      syncUserMutation(
+        {
+          email: user.primaryEmailAddress?.emailAddress,
+          name: user.fullName || user.firstName,
+          username: user.username || user.firstName,
+          imageUrl: user.imageUrl,
+        },
+        token,
+      );
     }
-  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation]);
+  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation, token]);
 
   return { isSynced: isSuccess };
 }

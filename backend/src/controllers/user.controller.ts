@@ -6,6 +6,7 @@ export async function syncUser(req: Request, res: Response) {
   try {
     const auth = getAuth(req);
     console.log("Auth object from Clerk:", auth);
+    console.log(req.headers.authorization);
     // if (!userId) {
     //   return res.status(401).json({ message: "Unauthorized" });
     // }
