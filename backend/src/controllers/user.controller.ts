@@ -8,6 +8,7 @@ export async function syncUser(req: Request, res: Response) {
     console.log("Syncing user with ID:", userId);
     const token = await getAuth(req).getToken();
     console.log("get token: ", token);
+    console.log("req.headers.authorization: ", req.headers.authorization);
 
     // if (!userId) {
     //   return res.status(401).json({ message: "Unauthorized" });
