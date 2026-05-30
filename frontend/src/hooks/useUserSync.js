@@ -28,10 +28,10 @@ function useUserSync() {
           username: user.username || user.firstName,
           imageUrl: user.imageUrl,
         },
-        token,
+        getToken(),
       );
     }
-  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation, token]);
+  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation, getToken]);
 
   return { isSynced: isSuccess };
 }
