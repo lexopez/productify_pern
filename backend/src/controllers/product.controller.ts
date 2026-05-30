@@ -47,6 +47,8 @@ export const getProductById = async (req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
   try {
     const { userId } = getAuth(req);
+    console.log("userId: ", userId);
+
     if (!userId) return res.status(401).json({ error: "Unauthorized" });
 
     const { title, description, imageUrl } = req.body;

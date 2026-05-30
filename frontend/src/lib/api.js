@@ -1,10 +1,11 @@
+// Note: do not use React hooks in non-component modules. Accept auth token from caller.
 import api from "./axios";
 
 // USERS API
 export const syncUser = async (userData, token) => {
   const { data } = await api.post("/users/sync", userData, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${await token}`,
     },
   });
   return data;
@@ -27,8 +28,14 @@ export const getMyProducts = async () => {
   return data;
 };
 
-export const createProduct = async (productData) => {
-  const { data } = await api.post("/products", productData);
+export const createProduct = async (productData, token) => {
+  const tokenValue = await token;
+  if (!tokenValue) throw new Error("Auth token required to create a product");
+  const { data } = await api.post("/products", productData, {
+    headers: {
+      Authorization: `Bearer ${tokenValue}`,
+    },
+  });
   return data;
 };
 

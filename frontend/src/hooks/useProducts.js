@@ -7,6 +7,7 @@ import {
   getProductById,
   updateProduct,
 } from "../lib/api";
+import { useAuth } from "@clerk/clerk-react";
 
 export const useProducts = () => {
   const result = useQuery({ queryKey: ["products"], queryFn: getAllProducts });
@@ -14,7 +15,10 @@ export const useProducts = () => {
 };
 
 export const useCreateProduct = () => {
-  return useMutation({ mutationFn: createProduct });
+  const token = useAuth().getToken;
+  return useMutation({
+    mutationFn: (product) => createProduct(product, token),
+  });
 };
 
 export const useProduct = (id) => {
