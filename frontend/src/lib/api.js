@@ -1,8 +1,12 @@
 import api from "./axios";
 
 // USERS API
-export const syncUser = async (userData) => {
-  const { data } = await api.post("/users/sync", userData);
+export const syncUser = async (userData, token) => {
+  const { data } = await api.post("/users/sync", userData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return data;
 };
 
