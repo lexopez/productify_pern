@@ -7,8 +7,7 @@ function useUserSync() {
   const { isSignedIn, getToken } = useAuth();
   const { user } = useUser();
   console.log("Is Signed In:", isSignedIn);
-  const token = getToken().then((t) => t);
-  console.log("Token:", token);
+  const token = getToken();
   console.log("User:", user);
 
   const {
@@ -28,10 +27,10 @@ function useUserSync() {
           username: user.username || user.firstName,
           imageUrl: user.imageUrl,
         },
-        getToken(),
+        token,
       );
     }
-  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation, getToken]);
+  }, [isSignedIn, user, isPending, isSuccess, syncUserMutation, token]);
 
   return { isSynced: isSuccess };
 }
