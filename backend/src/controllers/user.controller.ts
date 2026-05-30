@@ -4,8 +4,8 @@ import * as queries from "../db/queries.js";
 
 export async function syncUser(req: Request, res: Response) {
   try {
-    const { userId } = getAuth(req);
-    console.log("Syncing user with ID:", userId);
+    const auth = getAuth(req);
+    console.log("Auth object from Clerk:", auth);
     // if (!userId) {
     //   return res.status(401).json({ message: "Unauthorized" });
     // }
