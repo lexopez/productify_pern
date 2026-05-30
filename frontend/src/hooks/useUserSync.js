@@ -19,7 +19,7 @@ function useUserSync() {
   });
 
   useEffect(() => {
-    if (isSignedIn && user) {
+    if (isSignedIn && user && !isPending && !isSuccess) {
       syncUserMutation({
         email: user.primaryEmailAddress?.emailAddress,
         name: user.fullName || user.firstName,

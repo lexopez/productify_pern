@@ -22,7 +22,7 @@ app.use(helmet());
 app.use(
   cors({
     origin: process.env.CLIENT_ORIGIN,
-    credentials: true,
+    credentials: true, // allow cookies to be sent in CORS requests
   }),
 );
 app.use(express.json());
