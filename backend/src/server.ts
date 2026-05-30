@@ -15,8 +15,6 @@ import { db } from "./db/index.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(clerkMiddleware());
-
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(
@@ -27,6 +25,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // parses form data (like HTML forms).
+app.use(clerkMiddleware());
 
 app.get("/api/health", (_req: Request, res: Response) => {
   res.json({
