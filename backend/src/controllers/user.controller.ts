@@ -1,11 +1,11 @@
-import { getAuth } from "@clerk/express";
+import { getAuth, User } from "@clerk/express";
 import type { Request, Response } from "express";
 import * as queries from "../db/queries.js";
 
 export async function syncUser(req: Request, res: Response) {
   try {
-    const { userId } = getAuth(req);
-    console.log("Syncing user with ID:", userId);
+    // const { userId } = getAuth(req);
+    // console.log("Syncing user with ID:", userId);
     // if (!userId) {
     //   return res.status(401).json({ message: "Unauthorized" });
     // }
